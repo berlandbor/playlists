@@ -53,6 +53,25 @@
       color: #432e7f;
       text-decoration: underline;
     }
+    .action-btns {
+      margin-left: 1em;
+      display: inline-flex;
+      gap: 0.5em;
+      vertical-align: middle;
+    }
+    .action-btns button {
+      background: #f0e6fa;
+      border: 1px solid #ae7aca;
+      color: #432e7f;
+      border-radius: 6px;
+      font-size: 0.95em;
+      cursor: pointer;
+      padding: 0.2em 0.7em;
+      transition: background 0.13s;
+    }
+    .action-btns button:hover {
+      background: #e6dae6;
+    }
     .placeholder {
       color: #b9a8c7;
       font-style: italic;
@@ -65,12 +84,28 @@
   <div class="title">Playlist</div>
   <div class="playlist-list">
     <ul>
-      <!-- Пример заготовок для будущих ссылок -->
-      <li><a href="https://berlandbors.github.io/playlists/berlandbor-1.json">GD+VK</a></li>
-     <!-- <li><a href="https://berlandbor.github.io/playlists/playlist.json">GD+VK</a></li> -->
-      <!-- <li><a href="#">Название плейлиста 3</a></li> -->
+      <li>
+        <a href="https://berlandbors.github.io/playlists/berlandbor-1.json" target="_blank">GD+VK</a>
+        <span class="action-btns">
+          <a href="https://berlandbors.github.io/playlists/berlandbor-1.json" download="berlandbor-1.json">
+            <button title="Скачать">⬇️</button>
+          </a>
+          <button onclick="copyLink('https://berlandbors.github.io/playlists/berlandbor-1.json')" title="Скопировать ссылку">🔗</button>
+        </span>
+      </li>
     </ul>
     <div class="placeholder">#@$</div>
   </div>
+  <script>
+    function copyLink(url) {
+      navigator.clipboard.writeText(url)
+        .then(() => {
+          alert('Ссылка скопирована!');
+        })
+        .catch(() => {
+          alert('Не удалось скопировать ссылку');
+        });
+    }
+  </script>
 </body>
 </html>
